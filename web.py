@@ -33,7 +33,7 @@ def dologin():
     emailValue = (email, )
     cur.execute(query, emailValue)
     row = cur.fetchone()
- 
+    print("adding this line for Git Test")
     if ( row != None):   
         if row[4] == password:
              return redirect('/debug/' + str(row[0]))
