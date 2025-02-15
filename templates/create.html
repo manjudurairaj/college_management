@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Website</title>
+    </head>
+    <style>
+        .header{
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px;
+            border-radius: 10px;
+        }
+        .header-title {
+            font-size: 40px;
+            color: black;
+            font-weight: 900;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            
+        }
+        tr:hover {
+            background-color: #a9dddd;
+        }
+        tr:nth-child(even) {
+            background-color: #66b1b1;
+        }
+        
+        .input-button {
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            margin-bottom: 10px;
+            align-self: flex-end;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border: 2px;
+            border-radius: 10px;
+        }
+        .input-button {
+            color: white;
+            text-decoration: none;
+        }
+
+        .parent {
+           
+           display: flex;
+           flex-direction: column;
+       }
+
+
+    
+
+    </style>
+    <body>
+        <div class="header">
+            <span class="header-title">fees</span>
+        </div>
+        <form method="POST"> 
+        <table>
+            <tr>
+                <th><label for="id">id</label></th>
+                <th><label for="feescategory">fees name:</label></th>
+                <th><label> fees amount: </label></th>
+                <th><label> extra fees reason: </label></th>
+            </tr>
+            {%  for row in table_data %}
+                <tr>
+                    <td style="align-self: center;"> {{ row.id }} </td>
+                    <td> {{ row.feesname }} </td>
+                    <td> {{ row.feesamount }} </td>
+                    <td> {{ row.reason }} </td>
+                    
+                </tr>
+            {% endfor %}
+            
+            <tr>
+                <td></td>
+                <td>
+                    <select id="feescategory" name="feescategory">
+                        <option value="1">tution fees</option>
+                        <option value="2">bus fees</option>
+                        <option value="3">function fees</option>
+                        <option value="4">semester fees</option>
+                        <option value="5">other fees</option>
+                    </select>
+                </td>
+                <td><input type="text" label="amount" id="amount" name="amount" value="{{amount}}" /></td>
+                <td><input type="text" label="reason" id="reason" name="reason" value="{{reason}}" /></td>
+            </tr>
+        </table>
+        
+        <div class="parent">
+            <button class="input-button"  type="submit" name="save_temp">Save Row (Temp)</button>
+            <button class="input-button"  type="submit" name="final_submit">Final Submit</button>
+        </div>
+        
+        <!-- <div class="parent">
+            <div class="input-button">
+                <a  href="/add button/{{id}}">add New Fees</a>
+            </div>
+            <div class="input-button">
+                <a  href="/add button/{{id}}">Saves</a>
+            </div>
+        </div> -->
+    </form>
+       
+
+    </body>
+</html>
+
+            <!-- <th><label> fees amount: </label></th>
+            <td><input type="text" label="amount" id="amount" name="amount" value="{{amount}}" /></td>
+
+            <th><label> extra fees reason: </label></th>
+            <td><input type="text" label="reason" id="reason" name="reason" value="{{reason}}" /></td>
+                
+            </tr>
+        </table>
+
+
+
+
+    </body>
+</html>
+           -->

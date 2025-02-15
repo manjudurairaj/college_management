@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>First Website</title>
+    </head>
+    <style>
+        .header{
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px;
+            border-radius: 10px;
+        }
+        .header-title {
+            font-size: 24px;
+            color: black;
+            font-weight: 900;
+        }
+        .main-body {
+            margin-top: 10px;
+            justify-self: center;
+        }
+        body {
+            background-image: url({{ url_for('static', filename='mp.jpg') }});
+            background-size: cover;  /* Ensures the image covers the entire viewport */
+            background-position: center;  /* Centers the image */
+            background-repeat: no-repeat; /* Prevents image tiling */
+            height: 100vh;  /* Ensures body takes full viewport height */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+        }
+        .register-form {
+            border: 2px dashed black;
+            margin: 10%;
+            padding: 10px;
+            padding: 10px ;
+            width: 100%;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            color: black;
+        }
+        
+        .lastname {
+            margin-top: 0px
+        }
+    </style>
+    <body >
+        <div class="header">
+            <span class="header-title">fees information</span>
+        </div>
+
+        <div class="main-body">
+
+            <form action="/do-create/{{id}}" method="POST">
+                <div class="register-form">
+
+
+                    </br>
+                    <div>
+                        <label> feesname: </label>
+
+                        <select name="feesid" id="feesid" >
+                            {% for opt in feesdetails %}     
+                                <option value={{opt[0]}} {% if opt[0]==feesid %}selected{% endif %}>{{opt[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    </br>
+                    <div>
+                        <label> fees_amount: </label>
+                        <input type="text" label="fees_amount" id="fees_amount" name="fees_amount" value="{{feesamount}}" />
+                    </div>
+                    </br>
+                    <div>
+                        <label> extra_fees_reason: </label>
+                        <input type="text" label="extra_fees_reason" id="extra_fees_reason" name="extra_fees_reason" value="{{extrafeesreason}}" /> 
+                    </div>
+
+                    </br>
+
+
+                    <input type="submit" />
+
+
+
+
+
+                </div>
+            </form>
+        </div>
+       
+            
+    </body>
+</html>
+               -->

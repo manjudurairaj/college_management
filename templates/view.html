@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Website</title>
+    </head>
+    <style>
+        .header{
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px;
+            border-radius: 10px;
+        }
+        .header-title {
+            font-size: 40px;
+            color: black;
+            font-weight: 900;
+        }
+
+    
+        .parent {
+           
+            display: flex;
+            flex-direction: column;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            
+        }
+        tr:hover {
+            background-color: #a9dddd;
+        }
+        tr:nth-child(even) {
+            background-color: #66b1b1;
+        }
+        
+    </style>
+    <body>
+        <div class="header">
+            <span class="header-title">fees Details</span>
+        </div>
+        <div class="parent">
+             <table>
+            <tr class="tr">
+              <th>id</th>
+              <th>feescategoryid</th>
+              <th>feesamount</th>
+              <th>reason</th>
+            </tr>
+            {%  for row in feesdetails %}
+            <tr class="tr">
+                <td style="align-self: center;"> {{ row.id }} </td>
+                <td> {{ row.feescategoryid }} </td>
+                <td> {{ row.feesamount }} </td>
+                <td> {{ row.reason }} </td>
+            </tr>
+            {% endfor %}
+
+
+
+             </table>
+    </div>
+    </body>
+</html>
+          

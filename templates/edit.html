@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Website</title>
+    </head>
+    <style>
+        .header{
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 6px;
+            margin-top: 60px;
+            border-radius: 30px;
+        }
+        .header-title {
+            font-size: 24px;
+            color: black;
+            font-weight: 900;
+        }
+        .main-body {
+            margin-top: 10px;
+            justify-self: center;
+        }
+        body {
+            background-image: url({{ url_for('static', filename='mp.jpg') }});
+            background-size: cover;  /* Ensures the image covers the entire viewport */
+            background-position: center;  /* Centers the image */
+            background-repeat: no-repeat; /* Prevents image tiling */
+            height: 100vh;  /* Ensures body takes full viewport height */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+        }
+        .register-form {
+            border: 2px dashed black;
+            margin: 10%;
+            padding: 10px;
+            padding: 10px ;
+            width: 100%;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            color: black;
+        }
+        .lastname {
+            margin-top: 0px
+        }
+    </style>
+    <body >
+        <div class="header">
+            <span class="header-title">Edit</span>
+        </div>
+
+        <div class="main-body">
+
+            <form action="/do-edit/{{id}}" method="POST">
+                <div class="register-form">
+
+                    <div>
+                        <label> fathername: </label>
+                        <input type="text" label="fathername" id="fathername" name="fathername" placeholder="fathername" value="{{fathername}}"/>
+                    </div>
+                    </br>
+                    <div>
+                        <label> mothername: </label>
+                        <input type="text" label="mothername" id="mothername" name="mothername" placeholder="mothername" value="{{mothername}}"/>
+                    </div>
+                    </br>
+                    <div>
+                        <label> date_of_birth: </label>
+                        <input type="date" label="date_of_birth" id="date_of_birth" name="date_of_birth" value="{{date_of_birth}}"/>
+                    </div>
+                    </br>
+                    <div>
+                        <label> gender: </label></br>                       
+                        <input type="radio" name="gender" value="M" {% if gender == 'M' %}checked{% endif %}>male<br>
+                        <input type="radio" name="gender" value="F" {% if gender == 'F' %}checked{% endif %}>female<br>
+                        
+                    </div>
+                    </br>
+
+                    <input type="submit" />
+
+
+
+
+
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+              

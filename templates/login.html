@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Website</title>
+    </head>
+    <style>
+        .header{
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px;
+            border-radius: 10px;
+        }
+        .header-title {
+            font-size: 24px;
+            color: white;
+            font-weight: 900;
+        }
+        .main-body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: aliceblue;
+        }
+        .register-form {
+            border: 2px dashed white;
+            border-radius: 20px;
+            margin: 10%;
+            padding: 10px ;
+            width: 100%;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            color: white;
+
+
+
+
+        }
+        .lastname {
+            margin-top: 0px
+        }
+        body {
+            background-image: url({{ url_for('static', filename='lo.jpg') }});
+            background-size: cover;  /* Ensures the image covers the entire viewport */
+            background-position: center;  /* Centers the image */
+            background-repeat: no-repeat; /* Prevents image tiling */
+            height: 100vh;  /* Ensures body takes full viewport height */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default */
+        }
+        .input-text {
+            border: 1px solid wheat;
+            border-radius: 10px;
+            padding-left: 8px;
+            border: 1px solid wheat;
+            border-radius: 2px;
+            padding-left: 10px;
+            border: 2px dashed white;
+            border-radius: 20px;
+            margin: 10%;
+            padding: 10px ;
+            width: 100%;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+        }
+        
+        .input-button {
+            border: 1px solid wheat;
+            background-color: whitesmoke;
+            
+            border-radius: 10px;
+            padding-left: 8px;
+            display: flex;
+           
+            justify-self: center;
+
+        }
+    </style>
+    <body>
+        <div class="header">
+            <span class="header-title">Login </span>
+        </div>
+
+        <div class="main-body"> 
+
+            <h2>Have an account?</h2>
+            <form action="/do-login" method="POST">
+                <div class="register-form">
+                    <div>
+                        <label> Email: </label>
+                        <input class="input-text" type="email" label="email" id="email" name="email" placeholder="Email" />
+                    </div>
+                    </br>
+                    <div>
+                        <label> Password: </label>
+                        <input class="input-text" type="password" label="password" id="password" name="password" placeholder="Password" />
+
+                        {% if error  %}
+                            <p style="color: red;"> {{ error }} </p>
+                        {% endif %}
+
+                    </div>
+                    </br>
+                  
+                    <input class="input-button" type="submit" />
+                   
+                    
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+              
+
+<!--   
+    display: flex
+    flex-direction: row | column
+    align-items 
+    align-self
+    justify-content
+    justify-items
+    justify-self
+
+    padding
+    padding-left
+    padding-right
+    padding-top
+    paddint-bottom
+
+    margin
+    margin-left
+    margin-right
+    margin-top
+    margin-bottom
+
+
+    backgroud-color
+    backgroud-image
+
+    text-align
+
+    border
+    border-radius
+
+    
+
+
+-->
