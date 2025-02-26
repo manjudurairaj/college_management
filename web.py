@@ -3,6 +3,8 @@ from dbconnect import connection, getCursor
 from studentprofile import studentprofilePage
 from education import educationPage
 from fees import feesPage
+from subject import subjectPage
+from admin import adminprofilePage
 
 app = Flask(__name__, template_folder="templates")
 
@@ -65,13 +67,14 @@ def doregister():
         return redirect('/login')
     else:
         return render_template('register.html', error="User Already Exists. Please try with another email")
-   
 
 
 
 app.register_blueprint(studentprofilePage)
 app.register_blueprint(educationPage)
 app.register_blueprint(feesPage)
+app.register_blueprint(subjectPage)
+app.register_blueprint(adminprofilePage)
 
 
 app.run(host='0.0.0.0', port=5373, debug=True)

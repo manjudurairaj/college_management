@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Website</title>
+    </head>
+    <style>  .header{
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px;
+        border-radius: 10px;
+    }
+    .header-title {
+        font-size: 45px;
+        color: white;
+        font-weight: 800;
+    }
+    
+    .main-body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    body {
+        background-image: url({{ url_for('static', filename='th.jpg') }});
+        background-size: cover;  /* Ensures the image covers the entire viewport */
+        background-position: center;  /* Centers the image */
+        background-repeat: no-repeat; /* Prevents image tiling */
+        height: 80vh;  /* Ensures body takes full viewport height */
+        margin: 0; /* Removes default margin */
+        padding: 0; /* Removes default padding */
+    }
+    .main-body {
+        margin-top: -80px;
+    }
+
+    
+
+
+    .register-form {
+        border: 2px dashed white;
+        border-radius: 20px;
+        margin: 10%;
+        padding: 10px ;
+        width: 100%;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        color: azure;
+
+
+
+
+    }
+    .input-text {
+        border: 1px solid wheat;
+        border-radius: 2px;
+        padding-left: 10px;
+        border: 2px dashed white;
+        border-radius: 20px;
+        margin: 10%;
+        padding: 10px ;
+        width: 100%;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+
+    }
+    .input-button {
+        border: 1px solid wheat;
+        background-color: whitesmoke;
+        
+        border-radius: 10px;
+        padding-left: 8px;
+        display: flex;
+       
+        justify-self: center;
+    }
+    .lastname {
+        margin-top: 0px
+    }
+    </style>
+    <body>
+        <div class="header">
+            <span class="header-title">Admin </span>
+        </div>
+
+        <div class="main-body"> 
+            <form action="/do-admin" method="POST">
+                <div class="register-form">
+                    <div>
+                        <label> Email: </label>
+                        <input class="input-text" type="email" label="email" id="email" name="email" placeholder="Email" />
+                    </div>
+                    </br>
+                    <div>
+                        <label> Password: </label>
+                        <input class="input-text" type="password" label="password" id="password" name="password" placeholder="Password" />
+
+                        {% if error  %}
+                            <p style="color: red;"> {{ error }} </p>
+                        {% endif %}
+
+                    </div>
+                    </br>
+                  
+                    <input class="input-button" type="submit" />
+                   
+                    
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+              
+

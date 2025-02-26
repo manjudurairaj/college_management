@@ -15,22 +15,28 @@ def fees_list(student_id):
     idvalue=(student_id,)
     cur.execute(query,idvalue)
     feeslist = cur.fetchall()
+    print(feeslist)
     return render_template('fees_list.html', id=student_id,  feeslist=feeslist)
 
 
 @feesPage.route('/view/<feesid>')
 def view(feesid):
     cur = getCursor(True)
-    query ='select * from feesdetails where feesid= %s'
+    query ='select * from feesdetails inner join feescategory on feesdetails.feescategoryid = feescategory.id where feesid= %s'
     idvalue=(feesid,)
     cur.execute(query,idvalue)
     feesdetails = cur.fetchall()
     return render_template('view.html', id=feesid, feesdetails=feesdetails)
 
 
-
 @feesPage.route('/create/<student_id>', methods=['GET', 'POST'])
 def create(student_id):
+    cur = getCursor(True)
+    categoryquery ='select * from feescategory'
+    cur.execute(categoryquery)
+    category = cur.fetchall()
+    # print(category)
+
     global temp_data
     if request.method == 'POST':
 
@@ -38,6 +44,7 @@ def create(student_id):
             feesname = request.form.get('feescategory')
             feesamount = request.form.get('amount')
             reason  = request.form.get('reason')
+            
             
 
             feesInfo = {
@@ -64,10 +71,20 @@ def create(student_id):
                 feesQuery = 'insert into feesdetails ( feesid, feescategoryid, feesamount, reason) value ( %s, %s, %s, %s )'
                 value = (feesId,entry["feesname"],int(entry["feesamount"]),entry["reason"])
                 cur.execute(feesQuery, value)
-                connection.commit()
+            connection.commit()
             return redirect('/fees_list/' + str(student_id))
+
+    dict={}
+    for item in category: 
+        dict[str(item['id'])] = item['feesname']
     
-    return render_template('create.html', table_data=temp_data)
+    return render_template('create.html', table_data=temp_data,category=dict)
+
+    
+
+
+
+
 
 
 

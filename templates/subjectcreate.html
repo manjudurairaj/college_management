@@ -64,42 +64,69 @@
 
 
         }
+        .sem {
+            justify-self: flex-end;
+
+        }
 
     
 
     </style>
     <body>
         <div class="header">
-            <span class="header-title">fees</span>
+            <span class="header-title">subject</span>
         </div>
         <form method="POST"> 
+        <div class="sem">
+            <label for="semester_list">Semester Name:</label>
+
+            {%  for row in table_data %}
+                {{ semester[row.semestername]  }} 
+            {% endfor %}
+
+            <select id="semester" name="semester"> 
+                {% for semesterid, SemesterName in semester.items() %}   
+                    <option value="{{semesterid}}">{{SemesterName}}</option> 
+                {% endfor %}
+            </select> 
+            </div>
+
+
+
+
         <table>
             <tr>
-                <th><label for="id">id</label></th>
-                <th><label for="feescategory">fees name:</label></th>
-                <th><label> fees amount: </label></th>
-                <th><label> extra fees reason: </label></th>
+                <!-- <th><label for="semester_list">Semester Name:</label></th> -->
+                <th><label for="semester_subject">Subject Name:</label></th>
+                <th><label> Mark: </label></th>
+
             </tr>
             {%  for row in table_data %}
                 <tr>
-                    <td style="align-self: center;"> {{ row.id }} </td>
-                    <td> {{ category[row.feesname] }} </td>
-                    <td> {{ row.feesamount }} </td>
-                    <td> {{ row.reason }} </td>
+
+                    <!-- <td> {{ semester[row.semestername]  }} </td> -->
+                    <td> {{ subject[row.subjectname] }} </td>
+                    <td> {{ row.Mark }} </td>
                 </tr>
+                
             {% endfor %}
             
             <tr>
-                <td></td>
+                <!-- <td> -->
+                    <!-- <select id="semester" name="semester"> 
+                        {% for semesterid, SemesterName in semester.items() %}   
+                            <option value="{{semesterid}}">{{SemesterName}}</option> 
+                        {% endfor %}
+                    </select>  -->
+                <!-- </td> -->
                 <td>
-                    <select id="feescategory" name="feescategory">
-                        {% for feesId, feesName in category.items() %}  
-                            <option value="{{feesId}}">{{feesName}}</option> 
+                    <select id="subject" name="subject">
+                        {% for subjectId, SubjectName in subject.items() %}  
+                            <option value="{{subjectId}}">{{SubjectName}}</option> 
                         {% endfor %}
                     </select>
                 </td>
-                <td class="box"><input class="input-text" type="text" label="amount" id="amount" name="amount" value="{{amount}}" /></td>
-                <td class="box"><input class="input-text" type="text" label="reason" id="reason" name="reason" value="{{reason}}" /></td>
+                <td class="box"><input class="input-text" type="text" label="Mark" id="Mark" name="Mark" value="{{Mark}}" /></td>
             </tr>
         </table>
         
@@ -107,33 +134,10 @@
             <button class="input-button"  type="submit" name="save_temp">Save Row (Temp)</button>
             <button class="input-button"  type="submit" name="final_submit">Final Submit</button>
         </div>
-        
-        <!-- <div class="parent">
-            <div class="input-button">
-                <a  href="/add button/{{id}}">add New Fees</a>
-            </div>
-            <div class="input-button">
-                <a  href="/add button/{{id}}">Saves</a>
-            </div>
-        </div> -->
+
     </form>
        
 
     </body>
 </html>
 
-            <!-- <th><label> fees amount: </label></th>
-            <td><input type="text" label="amount" id="amount" name="amount" value="{{amount}}" /></td>
-
-            <th><label> extra fees reason: </label></th>
-            <td><input type="text" label="reason" id="reason" name="reason" value="{{reason}}" /></td>
-                
-            </tr>
-        </table>
-
-
-
-
-    </body>
-</html>
-           -->

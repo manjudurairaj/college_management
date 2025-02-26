@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <title>First Website</title>
@@ -43,33 +43,48 @@
         tr:nth-child(even) {
             background-color: #66b1b1;
         }
+        .input-button {
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            margin-bottom: 10px;
+            align-self: flex-end;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border: 2px;
+            border-radius: 10px;
+        }
+        .input-button {
+            color: white;
+            text-decoration: none;
+        }
         
     </style>
     <body>
         <div class="header">
-            <span class="header-title">fees Details</span>
+            <span class="header-title">Branches</span>
         </div>
+        <form action="/do-menudelete/{{id}}" method="POST">
         <div class="parent">
              <table>
             <tr class="tr">
-              <th>id</th>
-              <th>feesname</th>
-              <th>feesamount</th>
-              <th>reason</th>
+              <th><label>branchname:</label></th>
             </tr>
-            {%  for row in feesdetails %}
-            <tr class="tr">
-                <td style="align-self: center;"> {{ row.id }} </td>
-                <td> {{ row.feesname }} </td>
-                <td> {{ row.feesamount }} </td>
-                <td> {{ row.reason }} </td>
+           
+            </select>
+            
+            <tr>
+                <td class="box"><input class="input-text" type="text" label="branchname" id="branchname" name="branchname" value="{{branchname}}" /></td>
             </tr>
-            {% endfor %}
-
-
-
              </table>
+             <div class="parent">
+                    <input class="input-button"  type="submit" />
+
+                
+            </div>
+        </form>
+            
     </div>
     </body>
 </html>
-          
+           -->

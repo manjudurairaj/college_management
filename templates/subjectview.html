@@ -47,22 +47,20 @@
     </style>
     <body>
         <div class="header">
-            <span class="header-title">fees Details</span>
+            <span class="header-title">subject mark Details</span>
         </div>
         <div class="parent">
              <table>
             <tr class="tr">
               <th>id</th>
-              <th>feesname</th>
-              <th>feesamount</th>
-              <th>reason</th>
+              <th>subjectname</th>
+              <th>subjectmark</th>
             </tr>
-            {%  for row in feesdetails %}
+            {%  for row in marklist %}
             <tr class="tr">
                 <td style="align-self: center;"> {{ row.id }} </td>
-                <td> {{ row.feesname }} </td>
-                <td> {{ row.feesamount }} </td>
-                <td> {{ row.reason }} </td>
+                <td> {{ row.subject_name }} </td>
+                <td> {{ row.semester_mark }} </td>
             </tr>
             {% endfor %}
 
